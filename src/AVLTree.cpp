@@ -24,7 +24,7 @@ public:
         _root = eraseImpl(_root, key);
     }
 
-    Node<T>* find(const T& key) const {
+    const Node<T>* find(const T& key) const {
         return findImpl(_root, key);
     }
 
@@ -83,7 +83,7 @@ private:
         return rr_rotate(node);
     }
 
-    Node<T>* findImpl(Node<T>* node, const T& key) const {
+    const Node<T>* findImpl(Node<T>* node, const T& key) const {
         if (node == 0)
             return node;
 
@@ -187,7 +187,7 @@ void AVLTree<T>::erase(const T& key) {
 }
 
 template<class T>
-Node<T>* AVLTree<T>::find(const T& key) const {
+const Node<T>* AVLTree<T>::find(const T& key) const {
     return _impl->find(key);
 }
 

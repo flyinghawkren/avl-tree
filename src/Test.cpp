@@ -19,7 +19,7 @@ int main(void) {
     tree.insert(39);
     tree.traverse(printNode);
 
-    Node<int>* node1 = tree.find(37);
+    const Node<int>* node1 = tree.find(37);
     if (node1 == 0)
         std::cout << "Not found 37 in tree." << std::endl;
     else
@@ -29,7 +29,7 @@ int main(void) {
     tree.traverse(printNode);
 
     tree.destroy();
-    Node<int>* node2 = tree.find(37);
+    const Node<int>* node2 = tree.find(37);
     if (node2 == 0)
         std::cout << "Not found 37 in tree." << std::endl;
     else

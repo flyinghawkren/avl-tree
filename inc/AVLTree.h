@@ -25,7 +25,7 @@ public:
 
     void insert(const T& key);
     void erase(const T& key);
-    Node<T>* find(const T& key) const;
+    const Node<T>* find(const T& key) const;
     void destroy();
 
     void traverse(void (*traverseFunc)(Node<T> *node));
