@@ -11,7 +11,7 @@ struct Node {
     Node(T key) {
         this->key = key;
         this->left = this->right = 0;
-        this->height = 0;
+        this->height = 1;
     }
 };
 
@@ -26,6 +26,7 @@ public:
     void insert(T key);
     void erase(T key);
     Node<T>* find(T key);
+    void destroy();
 
     void traverse(void (*traverseFunc)(Node<T> *node));
 
