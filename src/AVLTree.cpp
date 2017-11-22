@@ -16,15 +16,15 @@ public:
     int getHeight() { return getHeight(_root); }
     int getBalance() { return getBalance(_root); }
 
-    void insert(T key) {
+    void insert(const T& key) {
         _root = insertImpl(_root, key);
     }
 
-    void erase(T key) {
+    void erase(const T& key) {
         _root = eraseImpl(_root, key);
     }
 
-    Node<T>* find(T key) {
+    Node<T>* find(const T& key) const {
         return findImpl(_root, key);
     }
 
@@ -83,7 +83,7 @@ private:
         return rr_rotate(node);
     }
 
-    Node<T>* findImpl(Node<T>* node, T key) {
+    Node<T>* findImpl(Node<T>* node, const T& key) const {
         if (node == 0)
             return node;
 
@@ -95,7 +95,7 @@ private:
             return node;
     }
 
-    Node<T>* insertImpl(Node<T>* node, T key) {
+    Node<T>* insertImpl(Node<T>* node, const T& key) {
         if (node == 0)
             return new Node<T>(key);
 
@@ -109,7 +109,7 @@ private:
         return rebalance(node);
     }
 
-    Node<T>* eraseImpl(Node<T>* node, T key) {
+    Node<T>* eraseImpl(Node<T>* node, const T& key) {
         if (node == 0)
             return 0;
 
@@ -177,17 +177,17 @@ AVLTree<T>::~AVLTree() {
 }
 
 template<class T>
-void AVLTree<T>::insert(T key) {
+void AVLTree<T>::insert(const T& key) {
     _impl->insert(key);
 }
 
 template<class T>
-void AVLTree<T>::erase(T key) {
+void AVLTree<T>::erase(const T& key) {
     _impl->erase(key);
 }
 
 template<class T>
-Node<T>* AVLTree<T>::find(T key) {
+Node<T>* AVLTree<T>::find(const T& key) const {
     return _impl->find(key);
 }
 

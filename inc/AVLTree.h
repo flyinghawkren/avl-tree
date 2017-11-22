@@ -8,7 +8,7 @@ struct Node {
     Node* right;
     int   height;
 
-    Node(T key) {
+    Node(const T& key) {
         this->key = key;
         this->left = this->right = 0;
         this->height = 1;
@@ -23,9 +23,9 @@ public:
     AVLTree();
     ~AVLTree();
 
-    void insert(T key);
-    void erase(T key);
-    Node<T>* find(T key);
+    void insert(const T& key);
+    void erase(const T& key);
+    Node<T>* find(const T& key) const;
     void destroy();
 
     void traverse(void (*traverseFunc)(Node<T> *node));
